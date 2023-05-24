@@ -3,8 +3,6 @@ package lotto.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -14,8 +12,8 @@ public class LottoGeneratorTest {
     @DisplayName("3000원을 입력하면 3개의 Lotto 반환 성공 테스트")
     @Test
     void create() {
-        List<Lotto> lottos = LottoGenerator.generate(new Money(3000));
-        assertThat(lottos.size()).isEqualTo(3);
+        Lottos lottos = LottoGenerator.generate(new Money(3000));
+        assertThat(lottos.getLottos().size()).isEqualTo(3);
     }
 
 }

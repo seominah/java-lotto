@@ -16,14 +16,6 @@ public class LottoDrawer {
                 .doubleValue();
     }
 
-    public static List<Integer> hitNumber(List<Lotto> lottos, Lotto wonNumber) {
-        List<Integer> matchCount = new ArrayList<>();
-        for (Lotto lotto : lottos) {
-            matchCount.add(lotto.matchedNumber(wonNumber));
-        }
-        return matchCount;
-    }
-
     public static BigDecimal totalPrize(List<Integer> hitNumbers) {
         BigDecimal totalPrize = BigDecimal.ZERO;
 

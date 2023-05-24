@@ -1,9 +1,6 @@
 package lotto;
 
-import lotto.domain.Lotto;
-import lotto.domain.LottoDrawer;
-import lotto.domain.LottoGenerator;
-import lotto.domain.LottoPrice;
+import lotto.domain.*;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 import lotto.view.Question;
@@ -17,12 +14,12 @@ public class LottoMain {
 
         int amonut = LottoGenerator.getAmount(new LottoPrice(inputPrice.getPrice()));
         outputView.lottoAmountPrint(amonut);
-        List<Lotto> lottos = LottoGenerator.generate(inputPrice.getPrice());
-        lottos.forEach(System.out::println);
+        Lottos lottos = LottoGenerator.generate(inputPrice.getPrice());
+        lottos.getLottos().forEach(System.out::println);
 
         InputView inputView = new InputView(Question.WON_NUMBER_QUESTION);
         Lotto wonNumbers = inputView.getWonNumbers();
-        List<Integer> hitNumber = LottoDrawer.hitNumber(lottos, wonNumbers);
+        List<Integer> hitNumber = lottos.hitNumber(lottos, wonNumbers);
         double profit = LottoDrawer.calProfit(inputPrice.getPrice(), hitNumber);
 
         outputView.winningPrint(hitNumber, profit);
